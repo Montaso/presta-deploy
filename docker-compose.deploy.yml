@@ -1,17 +1,15 @@
 services:
   prestashop:
     container_name: prestashop
-    build:
-      context: ./..
-      dockerfile: ./shop/presta.deploy.dockerfile
+    image: arivaldi/sklepik-prestashop:3.0
     ports:
       - 19323:443
     entrypoint: ["bash", "/entrypoint.sh"]
     environment:
-      DB_SERVER: mysql
-      DB_NAME: sklepik
+      DB_SERVER: admin-mysql_db
+      DB_NAME: BE_193237
       DB_USER: root
-      DB_PASSWD: kocham_biznes
+      DB_PASSWD: student
       PS_LANGUAGE: ${PS_LANGUAGE:-pl}
       PS_COUNTRY: ${PS_COUNTRY:-pl}
       PS_DOMAIN: localhost:19323
