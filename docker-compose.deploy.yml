@@ -1,7 +1,7 @@
 services:
   prestashop:
     container_name: prestashop
-    image: arivaldi/sklepik-prestashop:3.0
+    image: arivaldi/sklepik-prestashop:latest
     ports:
       - 19323:443
     entrypoint: ["bash", "/entrypoint.sh"]
@@ -23,6 +23,6 @@ services:
     networks:
       - admin-mysql_default
 
-  networks:
-    admin-mysql_default:
-      external: true
+networks:
+  admin-mysql_default:
+    external: true
